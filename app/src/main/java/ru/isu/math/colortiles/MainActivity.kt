@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        restartGameButton = findViewById<Button>(R.id.restart_btn)
+        restartGameButton = findViewById(R.id.restart_btn)
 
         brightColor = resources.getColor(R.color.bright_color)
         darkColor = resources.getColor(R.color.dark_color)
