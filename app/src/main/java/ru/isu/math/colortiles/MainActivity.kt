@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 //        Log.d("My List", views.indices.toString())
 
     }
-    
+
     private fun initColors(): Unit {
         for (row in views.indices) {
             for (col in views.indices) {
@@ -80,12 +80,15 @@ class MainActivity : AppCompatActivity() {
 
     fun tileClick(view: View) {
         val tag = view.tag.toString().split(" ")
-        val row = tag[0]
-        val col = tag[1]
+        val x = tag[0].toInt()
+        val y = tag[1].toInt()
 
-        changeColor(views[row.toInt()][col.toInt()])
-
-
+        changeColor(views[x][y])
+        for (i in views.indices) {
+            changeColor(views[x][i])
+            changeColor(views[i][y])
+        }
+//        changeColor(views[row.toInt()][col.toInt()])
 
 
     }
