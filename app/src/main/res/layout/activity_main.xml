@@ -193,6 +193,21 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/restart_btn"
+        android:textSize="14sp"
+        android:text="@string/restart"
+        android:enabled="false"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/system_color"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:onClick="restartGame"/>
+
 
 
 </RelativeLayout>

@@ -2,8 +2,10 @@ package ru.isu.math.colortiles
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
@@ -11,11 +13,13 @@ class MainActivity : AppCompatActivity() {
     private var views: MutableList<List<View>> = mutableListOf()
     private var brightColor: Int = 0
     private var darkColor: Int = 0
+    private lateinit var restartGameButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        restartGameButton = findViewById<Button>(R.id.restart_btn)
 
         brightColor = resources.getColor(R.color.bright_color)
         darkColor = resources.getColor(R.color.dark_color)
@@ -67,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     private fun changeColor(v: View) {
@@ -88,8 +93,42 @@ class MainActivity : AppCompatActivity() {
             changeColor(views[x][i])
             changeColor(views[i][y])
         }
-//        changeColor(views[row.toInt()][col.toInt()])
 
+        if (isGameWin()) {
+            delay()
+            return
+        }
 
+    }
+
+    private fun isGameWin(): Boolean {
+        var darkTilesCount = 0
+        var brightTilesCount = 0
+        for (row in views.indices) {
+            for (col in views.indices) {
+                val d = views[row][col].background as ColorDrawable
+                if (d.color == brightColor) {
+                    brightTilesCount++
+                } else {
+                    darkTilesCount++
+                }
+            }
+        }
+        return brightTilesCount == 16 || darkTilesCount == 16
+    }
+
+    fun restartGame(view: View) {
+        view.isEnabled = false
+        view.visibility = View.GONE
+
+        initColors()
+    }
+
+    private fun delay(delayTime: Long = 400) {
+        val handler = Handler()
+        handler.postDelayed({ // Do something after 5s = 5000ms
+            restartGameButton.isEnabled = true
+            restartGameButton.visibility = View.VISIBLE
+        }, delayTime)
     }
 }
