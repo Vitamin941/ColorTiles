@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Color Tiles</string>
     <string name="restart">Сыграть снова</string>
+    <string name="play">Играть</string>
 </resources>
