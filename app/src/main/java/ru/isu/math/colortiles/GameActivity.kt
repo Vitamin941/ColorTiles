@@ -14,6 +14,10 @@ class GameActivity : AppCompatActivity() {
     private var darkColor: Int = 0
     private lateinit var restartGameButton: Button
 
+    val tileSettings = { view: View, enable: Boolean ->
+        view.isEnabled = enable
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,19 +59,19 @@ class GameActivity : AppCompatActivity() {
         viewsRow = listOf<View>(tile30, tile31, tile32, tile33)
         views += viewsRow
 
-        initColors()
+        initTiles(true, tileSettings)
 
 //        Log.d("My List", views.indices.toString())
 
     }
 
-    private fun initColors(): Unit {
+    private fun initTiles(isEnabled: Boolean, tileSettings: (View, Boolean) -> Unit): Unit {
         for (row in views.indices) {
             for (col in views.indices) {
-                if ((1..2).shuffled().last() == 1) {
-                    Log.d("COLOR_CHANGED", "true")
+                if ((1..2).shuffled().last() == 1 && isEnabled) {
                     changeColor(views[row][col])
                 }
+                tileSettings(views[row][col], isEnabled)
             }
         }
 
@@ -120,12 +124,13 @@ class GameActivity : AppCompatActivity() {
         view.isEnabled = false
         view.visibility = View.GONE
 
-        initColors()
+        initTiles(true, tileSettings)
     }
 
     private fun delay(delayTime: Long = 400) {
+        initTiles(false, tileSettings)
         val handler = Handler()
-        handler.postDelayed({ // Do something after 5s = 5000ms
+        handler.postDelayed({
             restartGameButton.isEnabled = true
             restartGameButton.visibility = View.VISIBLE
         }, delayTime)
