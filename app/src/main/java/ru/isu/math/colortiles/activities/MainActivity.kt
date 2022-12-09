@@ -1,13 +1,10 @@
-package ru.isu.math.colortiles
+package ru.isu.math.colortiles.activities
 
 import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import ru.isu.math.colortiles.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +16,12 @@ class MainActivity : AppCompatActivity() {
     fun play(view: View): Unit {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
+    }
+
+    fun goToSettings(view: View) {
+        val intent = Intent(this, MyPreferenceActivity::class.java)
+        startActivity(intent)
+
     }
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ListPreference
+        android:key="tile_style"
+        android:entries="@array/colors_to_pick"
+        android:entryValues="@array/colors_to_pick"
+        android:title="@string/color_hint"
+        android:summary="@string/color_summary_hint"
+        android:defaultValue="@string/default_color"
+        android:dialogTitle="@string/dialog_color" />
+
+    <ListPreference
+        android:key="tile_count"
+        android:entries="@array/tiles_count"
+        android:entryValues="@array/tiles_count"
+        android:title="@string/tiles_count_hint"
+        android:summary="@string/tiles_count_summary_hint"
+        android:defaultValue="@string/default_tiles_count"
+        android:dialogTitle="@string/dialog_tiles" />
+
+
+</PreferenceScreen>

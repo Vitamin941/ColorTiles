@@ -1,12 +1,12 @@
-package ru.isu.math.colortiles
+package ru.isu.math.colortiles.activities
 
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.Button
+import ru.isu.math.colortiles.R
 
 class GameActivity : AppCompatActivity() {
     private var views: MutableList<List<View>> = mutableListOf()
@@ -14,7 +14,7 @@ class GameActivity : AppCompatActivity() {
     private var darkColor: Int = 0
     private lateinit var restartGameButton: Button
 
-    val tileSettings = { view: View, enable: Boolean ->
+    private val tileSettings = { view: View, enable: Boolean ->
         view.isEnabled = enable
     }
 
@@ -60,8 +60,6 @@ class GameActivity : AppCompatActivity() {
         views += viewsRow
 
         initTiles(true, tileSettings)
-
-//        Log.d("My List", views.indices.toString())
 
     }
 

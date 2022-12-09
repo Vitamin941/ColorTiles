@@ -2,4 +2,26 @@
     <string name="app_name">Color Tiles</string>
     <string name="restart">Сыграть снова</string>
     <string name="play">Играть</string>
+    <string name="color_hint">Цвет игрового поля</string>
+    <string name="color_summary_hint">Устанавливает основной цвет плиток</string>
+    <string name="default_color">Синий</string>
+    <string name="settings">Настройки</string>
+    <string name="tiles_count_hint">Выберите количество плиток</string>
+    <string name="tiles_count_summary_hint">Устанавливает общее число плиток</string>
+    <string name="default_tiles_count">16</string>
+    <string name="dialog_tiles">Выберите количество плиток</string>
+    <string name="dialog_color">Выберите цвет плиток</string>
+
+    <string-array name="colors_to_pick">
+        <item>Синий</item>
+        <item>Красный</item>
+        <item>Зелёный</item>
+    </string-array>
+
+
+    <string-array name="tiles_count">
+        <item>4</item>
+        <item>16</item>
+        <item>64</item>
+    </string-array>
 </resources>
