@@ -13,6 +13,7 @@ class GameActivity : AppCompatActivity() {
     private var brightColor: Int = 0
     private var darkColor: Int = 0
     private lateinit var restartGameButton: Button
+    
 
     private val tileSettings = { view: View, enable: Boolean ->
         view.isEnabled = enable
@@ -21,8 +22,10 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game)
+        // TODO: Реализовать собственный View чтобы можно было менять кол-во плиточек
+        setContentView(R.layout.activity_game16)
         restartGameButton = findViewById(R.id.restart_btn)
+//        val table:TableLayout = findViewById(R.id.tiles_container)
 
         brightColor = resources.getColor(R.color.bright_color)
         darkColor = resources.getColor(R.color.dark_color)
