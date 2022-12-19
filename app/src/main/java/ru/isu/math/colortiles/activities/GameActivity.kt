@@ -125,8 +125,11 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun restartGame(view: View) {
-        view.isEnabled = false
-        view.visibility = View.GONE
+        restartGameButton.isEnabled = false
+        restartGameButton.visibility = View.GONE
+
+        menuButton.isEnabled = false
+        menuButton.visibility = View.GONE
 
         initTiles(true, tileSettings)
     }
