@@ -11,6 +11,13 @@
     <string name="default_tiles_count">16</string>
     <string name="dialog_tiles">Выберите количество плиток</string>
     <string name="dialog_color">Выберите цвет плиток</string>
+    <string name="Ok">Понятно!</string>
+
+    <string name="rules_dialog">
+        Мои правила играть в эту игру
+    </string>
+    <string name="rules_hint">Правила</string>
+    <string name="go_to_main_btn">В главное меню</string>
 
     <string-array name="colors_to_pick">
         <item>Синий</item>

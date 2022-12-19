@@ -4,30 +4,39 @@
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
-
-    <Button
-        android:id="@+id/go_to_settings"
-        android:textSize="16sp"
-        android:text="@string/settings"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/play_game"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/system_color"
-        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp"
+        android:text="@string/app_name"
+        android:textColor=""
+        android:textSize="45sp" />
+
+
+    <Button
+        android:id="@+id/show_rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/play_game"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="goToSettings"/>
+        android:backgroundTint="@color/system_color"
+        android:onClick="showRules"
+        android:text="@string/rules_hint"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/play_game"
-        android:textSize="16sp"
-        android:text="@string/play"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/system_color"
-        android:textColor="@color/black"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:onClick="play"/>
+        android:backgroundTint="@color/system_color"
+        android:onClick="play"
+        android:text="@string/play"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </RelativeLayout>

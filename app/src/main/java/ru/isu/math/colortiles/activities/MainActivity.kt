@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.isu.math.colortiles.R
+import ru.isu.math.colortiles.fragments.RulesDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +19,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToSettings(view: View) {
-        val intent = Intent(this, MyPreferenceActivity::class.java)
-        startActivity(intent)
-
+    fun showRules(view: View): Unit {
+        val dialog = RulesDialogFragment()
+        dialog.show(supportFragmentManager, "RuleDialog")
     }
-
-
 }

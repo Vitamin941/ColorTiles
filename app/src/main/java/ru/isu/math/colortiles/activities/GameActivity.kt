@@ -1,5 +1,6 @@
 package ru.isu.math.colortiles.activities
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ class GameActivity : AppCompatActivity() {
     private var brightColor: Int = 0
     private var darkColor: Int = 0
     private lateinit var restartGameButton: Button
+    private lateinit var menuButton: Button
     
 
     private val tileSettings = { view: View, enable: Boolean ->
@@ -25,6 +27,7 @@ class GameActivity : AppCompatActivity() {
         // TODO: Реализовать собственный View чтобы можно было менять кол-во плиточек
         setContentView(R.layout.activity_game16)
         restartGameButton = findViewById(R.id.restart_btn)
+        menuButton = findViewById(R.id.out_btn)
 //        val table:TableLayout = findViewById(R.id.tiles_container)
 
         brightColor = resources.getColor(R.color.bright_color)
@@ -87,7 +90,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun tileClick(view: View) {
+    public fun tileClick(view: View) {
         val tag = view.tag.toString().split(" ")
         val x = tag[0].toInt()
         val y = tag[1].toInt()
@@ -134,6 +137,14 @@ class GameActivity : AppCompatActivity() {
         handler.postDelayed({
             restartGameButton.isEnabled = true
             restartGameButton.visibility = View.VISIBLE
+
+            menuButton.isEnabled = true
+            menuButton.visibility = View.VISIBLE
         }, delayTime)
+    }
+
+    fun goToMenu(view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

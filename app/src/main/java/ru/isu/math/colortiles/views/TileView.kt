@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import androidx.preference.PreferenceManager
 
 class TileView(
     context: Context,
@@ -17,6 +18,7 @@ class TileView(
 
 
     override fun onDraw(canvas: Canvas?) {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         super.onDraw(canvas)
     }
 
