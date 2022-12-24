@@ -10,8 +10,9 @@
     <color name="dark_color">#2553F8</color>
     <color name="bright_color">#97B1F3</color>
     <color name="system_color">#F4EE79</color>
-    <color name="background_color">#9984FFFF</color>
 
     <color name="ic_launcher_my_background">#E0E595</color>
-    <color name="title_color">#F60A1E</color>
+    <color name="background">#BF9F3AFF</color>
+    <color name="title_color">#BAF300</color>
+    <color name="record_color">#BAF300</color>
 </resources>
