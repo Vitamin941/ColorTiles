@@ -5,8 +5,10 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.SystemClock
 import android.view.View
 import android.widget.Button
+import android.widget.Chronometer
 import ru.isu.math.colortiles.R
 
 class GameActivity : AppCompatActivity() {
@@ -15,6 +17,7 @@ class GameActivity : AppCompatActivity() {
     private var darkColor: Int = 0
     private lateinit var restartGameButton: Button
     private lateinit var menuButton: Button
+    private lateinit var chronometer: Chronometer
     
 
     private val tileSettings = { view: View, enable: Boolean ->
@@ -28,7 +31,8 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game16)
         restartGameButton = findViewById(R.id.restart_btn)
         menuButton = findViewById(R.id.out_btn)
-//        val table:TableLayout = findViewById(R.id.tiles_container)
+        chronometer = findViewById(R.id.chronometer)
+        chronometer.start()
 
         brightColor = resources.getColor(R.color.bright_color)
         darkColor = resources.getColor(R.color.dark_color)
@@ -130,6 +134,8 @@ class GameActivity : AppCompatActivity() {
 
         menuButton.isEnabled = false
         menuButton.visibility = View.GONE
+
+        chronometer.base = SystemClock.elapsedRealtime()
 
         initTiles(true, tileSettings)
     }

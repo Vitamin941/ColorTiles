@@ -7,6 +7,8 @@
     tools:context=".activities.GameActivity">
 
 
+
+
     <TableLayout
         android:id="@+id/tiles_container"
         android:layout_width="match_parent"
@@ -223,6 +225,13 @@
         android:layout_marginBottom="10dp"
         android:onClick="goToMenu"/>
 
-
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="7dp"/>
 
 </RelativeLayout>
