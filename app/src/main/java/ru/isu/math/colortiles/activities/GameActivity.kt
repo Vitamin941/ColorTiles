@@ -107,6 +107,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         if (isGameWin()) {
+            chronometer.stop()
             val settings = applicationContext.getSharedPreferences("appSettings", 0)
             val editor = settings.edit()
 
@@ -143,6 +144,7 @@ class GameActivity : AppCompatActivity() {
         menuButton.visibility = View.GONE
 
         chronometer.base = SystemClock.elapsedRealtime()
+        chronometer.start()
 
         initTiles(true, tileSettings)
     }
