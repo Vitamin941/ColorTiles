@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/white">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +11,7 @@
         android:layout_marginBottom="30dp"
         android:layout_above="@id/show_rules"
         android:text="@string/app_name"
-        android:textColor="@color/system_color"
+        android:textColor="@color/black"
         android:textSize="55sp" />
 
 
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/record_view"
-        android:textColor="@color/record_color"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

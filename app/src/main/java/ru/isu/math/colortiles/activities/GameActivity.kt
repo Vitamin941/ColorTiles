@@ -74,6 +74,16 @@ class GameActivity : AppCompatActivity() {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        chronometer.stop()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        chronometer.start()
+    }
+
     private fun initTiles(isEnabled: Boolean, tileSettings: (View, Boolean) -> Unit): Unit {
         for (row in views.indices) {
             for (col in views.indices) {
@@ -95,7 +105,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    public fun tileClick(view: View) {
+    fun tileClick(view: View) {
         val tag = view.tag.toString().split(" ")
         val x = tag[0].toInt()
         val y = tag[1].toInt()
@@ -108,12 +118,7 @@ class GameActivity : AppCompatActivity() {
 
         if (isGameWin()) {
             chronometer.stop()
-            val settings = applicationContext.getSharedPreferences("appSettings", 0)
-            val editor = settings.edit()
-
-            val elapsedMillis: Long = SystemClock.elapsedRealtime() - chronometer.base
-            editor.putString("recordScore", "Рекорд: " + elapsedMillis / 1000 + " сек")
-            editor.commit()
+            checkRecord()
             delay()
             return
         }
@@ -159,6 +164,16 @@ class GameActivity : AppCompatActivity() {
             menuButton.isEnabled = true
             menuButton.visibility = View.VISIBLE
         }, delayTime)
+    }
+
+    private fun checkRecord() {
+        val settings = applicationContext.getSharedPreferences("appSettings", 0)
+        val editor = settings.edit()
+
+        val elapsedMillis: Long = SystemClock.elapsedRealtime() - chronometer.base
+        editor.putInt("recordTime", (elapsedMillis / 1000).toInt())
+        editor.clear()
+//        editor.apply()
     }
 
     fun goToMenu(view: View) {

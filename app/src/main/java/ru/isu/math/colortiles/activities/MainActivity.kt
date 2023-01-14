@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         val recordView = findViewById<TextView>(R.id.record_view)
 
         val settings = applicationContext.getSharedPreferences("appSettings", 0)
-        val recordTime = settings.getString("recordScore", "Рекорд:")
-        recordView.text = recordTime
+        val recordTime = settings.getInt("recordTime", 0)
+        recordView.text = "рекорд: $recordTime"
 
     }
 
